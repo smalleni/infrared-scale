@@ -2,5 +2,5 @@
 - name: install undercloud
   command: > 
     cd {{ infrared_dir }} && source {{ infrared_venv }} &&  infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }}
-    --config-options ctlplane-subnet.cidr=192.168.0.0/16 ctlplane-subnet.dhcp_start=192.168.0.1 ctlplane-subnet.dhcp_end=192.168.127.254
-    ctlplane-subnet.inspection_iprange=192.168.128.1,192.168.255.254
+    --config-options ctlplane-subnet.cidr=192.168.0.0/16 --config-options ctlplane-subnet.dhcp_start=192.168.0.1 --config-options 
+    ctlplane-subnet.dhcp_end=192.168.127.254 --config-options ctlplane-subnet.inspection_iprange=192.168.128.1,192.168.255.254
