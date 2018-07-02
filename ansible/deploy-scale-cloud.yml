@@ -9,4 +9,6 @@
   roles:
     - infrared-install
     - infrared-provision
+    - infrared-undercloud
+    - infrared-overcloud
     
