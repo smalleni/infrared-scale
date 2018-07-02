@@ -1,0 +1,9 @@
+---
+- name: copy deployment files
+  synchronize:
+    src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/overcloud-network/virt-scale
+    dest: "{{ infrared_dir }}/tripleo-overcloud/vars/deployment/files/
+ 
+- name: install overcloud
+  command: cd {{ infrared_dir }} && source {{ infrared_venv }} &&  infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }}
+~                                                                 

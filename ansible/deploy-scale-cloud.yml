@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  pre_tasks:
+    - name: set infrared facts
+      set_fact:
+        infrared_dir: "{{ lookup('env','WORKSPACE') }}/infrared"
+        infrared_venv: "{{ lookup('env','WORKSPACE') }}/infrared/.venv"
+  roles:
+    - infrared-install
+    - infrared-provision
+    

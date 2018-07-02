@@ -1,0 +1,25 @@
+---
+- name: clone infrared
+      git:
+        repo: https://github.com/redhat-openstack/infrared.git
+        dest: "{{ lookup('env','WORKSPACE') }}"
+
+- name: install infrared
+  command: virtualenv .venv && source .venv/bin/activate
+  args:
+    chdir: "{{ lookup('env','WORKSPACE') }}/infrared"  
+        
+- name: upgrade pip and setuptools
+  pip:
+    name: "{{ item }}"  
+    state: latest
+  with_items:
+    - pip
+    - setuptools
+          
+- name: install requirements
+  pip:
+    requirements: requirements.txt
+    chdir: "{{ lookup('env','WORKSPACE') }}/infrared"
+    virtualenv: "{{ lookup('env','WORKSPACE') }}/infrared/.venv"
+
