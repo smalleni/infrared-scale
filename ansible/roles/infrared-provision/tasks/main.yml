@@ -1,6 +1,6 @@
 ---
 - name: copy network topology files for scale
-  copy::
+  copy:
     src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/virsh-network/3_nets_scale.yml
     dest: "{{ infrared_dir }}/plugins/virsh/vars/topology/network/
 
