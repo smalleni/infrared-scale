@@ -2,7 +2,7 @@
 - name: install undercloud
   command: > 
     cd {{ infrared_dir }} && source {{ infrared_venv }} &&  infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }} 
-    --config-options DEFAULT.local_ip=192.168.0.1/16 --config-options DEFAULT.network_gateway=192.168.0.1/16 --config-options 
+    --config-options DEFAULT.local_ip=192.168.0.1/16 --config-options DEFAULT.network_gateway=192.168.0.1 --config-options 
     DEFAULT.undercloud_public_vip=192.168.0.2 --config-options DEFAULT.undercloud_admin_vip=192.168.0.3 --config-options 
     DEFAULT.network_cidr=192.168.0.0/16 --config-options DEFAULT.masquerade_network=192.168.0.0/16 --config-options 
     DEFAULT.dhcp_start=192.168.0.5 --config-options  DEFAULT.dhcp_end=192.168.127.254 --config-options 
