@@ -5,5 +5,5 @@
     dest: "{{ infrared_dir }}/tripleo-overcloud/vars/deployment/files/
  
 - name: install overcloud
-  command: cd {{ infrared_dir }} && source {{ infrared_venv }} &&  infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }}
+  command: cd {{ infrared_dir }} && source {{ infrared_venv }} && infrared tripleo-overcloud --version {{ version }} --deployment-files virt-scale --introspect yes --tagging yes --deploy yes --post yes -e provison_virsh_network_name=data
 ~                                                                 

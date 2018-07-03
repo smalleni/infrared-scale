@@ -1,0 +1,27 @@
+name: compute
+prefix: null
+cpu: "{{ compute.vcpus }}"
+cpumodel: "host-model,+vmx"
+memory: "{{ compute.memory }}"
+swap: "0"
+deploy_os: false
+os:
+    type: "linux"
+    variant: "rhel7"
+disks:
+    disk1:
+        import_url: null
+        path: null
+        dev: "/dev/vda"
+        size: "50G"
+        cache: "unsafe"
+        preallocation: "metadata"
+# infraces and external_network dicts were moved to network file.
+interfaces: null
+
+groups:
+    - compute
+    - openstack_nodes
+    - overcloud_nodes
+
+

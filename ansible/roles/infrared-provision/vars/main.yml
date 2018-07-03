@@ -1,5 +1,14 @@
 hypervisor:
 undercloud:
+  count:
+  vcpus:
+  memory:
 controller:
+  count:
+  vcpus:
+  memory:
 compute:
+  count:
+  vcpus:
+  memory:
 

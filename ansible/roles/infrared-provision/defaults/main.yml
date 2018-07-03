@@ -1,0 +1,14 @@
+hypervisor:
+undercloud:
+  count: 1
+  vcpus: 4
+  memory: 16384
+controller:
+  count: 1
+  vcpus: 4
+  memory: 8192
+compute:
+  count: 1
+  vcpus: 2
+  memory: 4096
+
