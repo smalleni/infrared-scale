@@ -1,11 +1,20 @@
 ---
+- name: add infrred overcloud plugin
+  shell: |
+    source {{infrared_venv }}
+    infrared plugin add plugins/tripleo-overcloud
+  args:
+   chdir: "{{ infrared_dir }}"
+
 - name: copy deployment files
   synchronize:
     src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/overcloud-network/virt-scale/"
     dest: "{{ infrared_dir }}/tripleo-overcloud/vars/deployment/files/"
  
 - name: install overcloud
-  command: > 
-    cd {{ infrared_dir }} && source {{ infrared_venv }} && infrared tripleo-overcloud --version {{ version }} --deployment-files virt-scale 
-    --introspect yes --tagging yes --deploy yes --post yes -e provison_virsh_network_name=data
-~                                                                 
+  shell: |
+    source {{ infrared_venv }}
+    infrared tripleo-overcloud --version {{ version }} --deployment-files 
+    virt-scale --introspect yes --tagging yes --deploy yes --post yes -e provison_virsh_network_name=data
+  args:
+    chdir: "{{ infrared_dir }}"

@@ -1,14 +1,14 @@
 hypervisor:
 undercloud:
-  count:
-  vcpus:
-  memory:
+  count: 1
+  vcpus: 8
+  memory: 16384
 controller:
-  count:
-  vcpus:
-  memory:
+  count: 1
+  vcpus: 4
+  memory: 8192
 compute:
-  count:
-  vcpus:
-  memory:
+  count: 1
+  vcpus: 2
+  memory: 4096
 

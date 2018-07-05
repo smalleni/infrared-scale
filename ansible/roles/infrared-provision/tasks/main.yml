@@ -1,4 +1,11 @@
 ---
+- name: add infrared virsh plugin
+  shell: |
+    source {{ infrared_venv }}
+    infrared plugin add plugins/virsh
+  args:
+    chdir: "{{ infrared_dir }}"
+    
 - name: copy network topology files for scale
   copy:
     src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/virsh-network/3_nets_scale.yml"
@@ -7,15 +14,16 @@
 - name: template node topology files for scale
   template:
     src:  "{{ item }}.yml.j2"
-    dest:  "{{ infrared_dir }}/plugins/virsh/vars/topology/nodes/{{ item }}.yml.j2"
+    dest:  "{{ infrared_dir }}/plugins/virsh/vars/topology/nodes/{{ item }}.yml"
   with_items:
     - [ controller, compute, undercloud ]
 
 - name: provision vms
-  command: > 
-    cd {{ infrared_dir }} && source {{ infrared_venv }} && infrared virsh 
-    --host-address {{ hypervisor }} --host-key ~/.ssh/id_rsa --topology-nodes "undercloud:{{ undercloud.count }},
-    controller:{{ controller.count }},compute:{{ compute.count }}" --topology-network 3_nets_scale
+  shell: |
+    source {{ infrared_venv }}
+    infrared virsh --host-address {{ hypervisor }} --host-key ~/.ssh/id_rsa --topology-nodes "undercloud:{{ undercloud.count }},controller:{{ controller.count }},compute:{{ compute.count }}" --topology-network 3_nets_scale
+  args:
+    chdir: "{{ infrared_dir }}"
  
 
 
