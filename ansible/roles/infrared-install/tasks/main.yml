@@ -1,8 +1,8 @@
 ---
 - name: clone infrared
-      git:
-        repo: https://github.com/redhat-openstack/infrared.git
-        dest: "{{ lookup('env','WORKSPACE') }}"
+  git:
+    repo: https://github.com/redhat-openstack/infrared.git
+    dest: "{{ lookup('env','WORKSPACE') }}"
 
 - name: install infrared
   command: virtualenv .venv && source .venv/bin/activate
