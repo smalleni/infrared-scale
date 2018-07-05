@@ -1,8 +1,8 @@
 ---
 - name: copy network topology files for scale
   copy:
-    src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/virsh-network/3_nets_scale.yml
-    dest: "{{ infrared_dir }}/plugins/virsh/vars/topology/network/
+    src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/virsh-network/3_nets_scale.yml"
+    dest: "{{ infrared_dir }}/plugins/virsh/vars/topology/network/"
 
 - name: template node topology files for scale
   template:
