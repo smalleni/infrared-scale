@@ -19,9 +19,9 @@ The virsh networking files required to create networks on the hypervisor large e
 
 Some variables like the version of OpenStack to be installed, build, name of the hypervisor and ssh-key file location need to be declared [here](ansible/group_vars/all.yml) as they are used by more than one role and hence haven't been made role specific.
 
-Based on you hypervisor capacity and the number of VMs (OpenStack nodes) you want to scale to, you can adjust the number of VMs of each type to be provisioned and the memory/cpu requirements [here](ansible/roles/infrared-provision/vars/main.yml). If you do not provide any values, some safe defaults are provided [here](ansible/roles/infrared-provision/defaults/main.yml) will be used.
+Based on you hypervisor capacity and the number of VMs (OpenStack nodes) you want to scale to, you can adjust the number of VMs of each type to be provisioned and the memory/cpu requirements [here](ansible/roles/infrared-provision/vars/main.yml). If you do not provide any values, some safe defaults provided [here](ansible/roles/infrared-provision/defaults/main.yml) will be used.
 
-The parameters to be applied in the undercloud.conf for undercloud installation suited for scale deployments are given [here](ansible/roles/infrared-undercloud/defaults/main.yml). You can change these by giving your own values in ansible/roles/infrared-undercloud/vars.
+The parameters to be applied in the undercloud.conf for undercloud installation suited for scale deployments are given [here](ansible/roles/infrared-undercloud/defaults/main.yml). You can change these by giving your own values in ansible/roles/infrared-undercloud/vars. Defaults work well, so you can leave them as is
 
 The overcloud network templates needed to deploy a large overcloud are present [here](overcloud-network/virt-scale) and are copied by infrared to the appropriate path for use by infrared.
 
