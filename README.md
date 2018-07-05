@@ -2,9 +2,9 @@
 
 This project is an ansible based wrapper around [infrared](https://github.com/redhat-openstack/infrared) which can be used to deploy a TripleO/Director based OpenStack deployment at scale.
 
-infrared-scale provides the automation and templates to deploy and tune a alrge OpenStack environment deployed using Virtual Machines on a hypervisor. The virsh networking and overcloud templates provided bt infrared-scale are large enough to provision and deploy 100s of nodes of OpenStack. By deploying OpenStack at scale using infrared-scale, one can find out bugs/limitations in the installer.
+infrared-scale provides the automation and templates to deploy and tune a large OpenStack environment deployed using Virtual Machines on a hypervisor. The virsh networking and overcloud templates provided by infrared-scale are large enough to provision and deploy 100s of nodes of OpenStack. By deploying OpenStack at scale using infrared-scale, one can find out bugs/limitations in the TripleO installer.
 
-Infrared spawns required number of VMs to act as undercloud, controller and compute nodes on the hypervisor, install the undercloud and overcloud. Hence, by using infrared/infrared-scale, one can spawn a large number of VMs on the hypervisor and deploy OpenStack at scale on these VMs.
+Infrared spawns required number of VMs to act as undercloud, controller and compute nodes on the hypervisor, installs the undercloud and overcloud. Hence, by using infrared/infrared-scale, one can spawn a large number of VMs on the hypervisor and deploy OpenStack at scale on these VMs.
 
 ## Requirements
 
