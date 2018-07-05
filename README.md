@@ -14,7 +14,8 @@ infrared-scale only needs ansible to work. All other requirements are installed 
 
 infrared-scale is designed to install and orchestrate infrared from you local machine. You can change this by pointing to the appropriate host in this [playbook](ansible/deploy-scale-cloud.yml).
 
-The virsh networking files required to create networks on the hypervisor large enough to accomodate enough VMs for scale deployments are provided [here](virsh-network)and are copied by infrared-scale into the appropriate path for use by infrared. 
+The virsh networking files required to create networks on the hypervisor large enough to accomodate enough VMs for scale deployments are provided [here](virsh-network)
+ and are copied by infrared-scale into the appropriate path for use by infrared. 
 
 Some variables like the version of OpenStack to be installed, build, name of the hypervisor and ssh-key file location need to be declared [here](ansible/group_vars/all.yml) as they are used by more than one role and hence haven't been made role specific.
 
