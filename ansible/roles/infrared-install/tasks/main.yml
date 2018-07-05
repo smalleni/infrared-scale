@@ -7,7 +7,7 @@
 - name: install infrared
   command: virtualenv .venv && source .venv/bin/activate
   args:
-    chdir: "{{ lookup('env','WORKSPACE') }}/infrared"  
+    chdir: "{{ infrared_dir }}"  
         
 - name: upgrade pip and setuptools
   pip:
@@ -20,6 +20,6 @@
 - name: install requirements
   pip:
     requirements: requirements.txt
-    chdir: "{{ lookup('env','WORKSPACE') }}/infrared"
-    virtualenv: "{{ lookup('env','WORKSPACE') }}/infrared/.venv"
+    chdir: "{{ infrared_dir }}"
+    virtualenv: "{{ infrared_venv }}"
 

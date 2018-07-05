@@ -1,7 +1,7 @@
 ---
 - name: copy deployment files
   synchronize:
-    src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/overcloud-network/virt-scale
+    src: "{{ lookup('env','WORKSPACE') }}/infrared-scale/overcloud-network/virt-scale/
     dest: "{{ infrared_dir }}/tripleo-overcloud/vars/deployment/files/
  
 - name: install overcloud
