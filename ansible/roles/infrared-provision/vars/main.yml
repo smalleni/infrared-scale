@@ -1,4 +1,4 @@
-hypervisor:
+---
 undercloud:
   count: 1
   vcpus: 8

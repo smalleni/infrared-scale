@@ -5,6 +5,7 @@
     infrared plugin add plugins/virsh
   args:
     chdir: "{{ infrared_dir }}"
+  ignore_errors: true
     
 - name: copy network topology files for scale
   copy:

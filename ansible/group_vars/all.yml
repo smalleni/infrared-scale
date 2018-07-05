@@ -1,3 +1,5 @@
 version: 13
 build: passed_phase2
+hypervisor: 
+host_key: ~/.ssh/id_rsa
 
