@@ -17,7 +17,7 @@ infrared-scale is designed to install and orchestrate infrared from you local ma
 The virsh networking files required to create networks on the hypervisor large enough to accomodate enough VMs for scale deployments are provided [here](virsh-network)
  and are copied by infrared-scale into the appropriate path for use by infrared. 
 
-Some variables like the version of OpenStack to be installed, build, name of the hypervisor and ssh-key file location need to be declared [here](ansible/group_vars/all.yml) as they are used by more than one role and hence haven't been made role specific.
+Some variables like the version of OpenStack to be installed, build, name of the hypervisor and ssh-key file location need to be declared [here](ansible/vars/main.yml) as they are used by more than one role and hence haven't been made role specific.
 
 Based on you hypervisor capacity and the number of VMs (OpenStack nodes) you want to scale to, you can adjust the number of VMs of each type to be provisioned and the memory/cpu requirements [here](ansible/roles/infrared-provision/vars/main.yml). If you do not provide any values, some safe defaults provided [here](ansible/roles/infrared-provision/defaults/main.yml) will be used.
 
