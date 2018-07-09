@@ -15,5 +15,5 @@
     - { role: infrared-provision, tags: [setup] }
     - { role: infrared-undercloud, tags: [setup] }
     - { role: infrared-overcloud, tags: [setup] }
-    - { role: infrared-cleanup, tags: [teardown] }
+    - { role: infrared-cleanup, tags: [teardown, never] }
     
