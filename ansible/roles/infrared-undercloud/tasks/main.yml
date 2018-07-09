@@ -17,4 +17,4 @@
     DEFAULT.dhcp_start={{ dhcp_start }} --config-options  DEFAULT.dhcp_end={{ dhcp_end }} --config-options DEFAULT.inspection_iprange={{ inspection_iprange }}
   args:
     chdir: "{{ infrared_dir }}"
-  ignore_erros: true
+  ignore_errors: true
