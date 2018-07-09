@@ -36,7 +36,7 @@ After declaring needed ansible and environment variables, run the playbook to de
 ansible-playbook deploy-scale-cloud.yml --tags setup
 ```
 
-Cleanup the hypervisor (delete clouda and VMs):
+Cleanup the hypervisor (delete cloud and VMs):
 ```
 ansible-playbook deploy-scale-cloud --tags teardown
 ```
