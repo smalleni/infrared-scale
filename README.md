@@ -38,5 +38,5 @@ ansible-playbook deploy-scale-cloud.yml --tags setup
 
 Cleanup the hypervisor (delete cloud and VMs):
 ```
-ansible-playbook deploy-scale-cloud --tags teardown
+ansible-playbook deploy-scale-cloud.yml --tags teardown
 ```
