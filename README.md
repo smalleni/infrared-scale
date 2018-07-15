@@ -8,7 +8,7 @@ Infrared spawns required number of VMs to act as undercloud, controller and comp
 
 ## Requirements
 
-infrared-scale only needs ansible to work. ansible > v2.5 is required.. All other requirements are installed as a part of infared installation. You must have passwordless-authentication and acces to the hypervisor you want launch VMs on from the node running infrared-scale(can be achieved using ssh-copy-id)
+infrared-scale only needs ansible to work. ansible >= v2.5 is required.. All other requirements are installed as a part of infared installation. You must have passwordless-authentication and acces to the hypervisor you want launch VMs on from the node running infrared-scale(can be achieved using ssh-copy-id)
 ## Getting Started
 
 infrared-scale is designed to install and orchestrate infrared from you local machine. You can change this by pointing to the appropriate host in this [playbook](ansible/deploy-scale-cloud.yml).
