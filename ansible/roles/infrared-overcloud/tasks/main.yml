@@ -15,7 +15,7 @@
 - name: install overcloud
   shell: |
     source {{ infrared_venv }}
-    infrared tripleo-overcloud --version {{ version }} --deployment-files virt-scale --introspect yes --tagging yes --deploy yes --post yes -e provison_virsh_network_name=data
+    infrared tripleo-overcloud --version {{ version }} --deployment-files virt-scale --introspect yes --tagging yes --deploy yes --post yes --deployment-timeout 180 -e provison_virsh_network_name=data
   args:
     chdir: "{{ infrared_dir }}"
   ignore_errors: true
