@@ -1,30 +1,32 @@
 ---
+- name: Install dependencies
+  yum: name={{ item }} state=installed
+  with_items:
+      - git
+      - gcc
+      - libffi-devel
+      - python-virtualenv
+      - libselinux-python
+
 - name: clone infrared
   git:
     repo: https://github.com/redhat-openstack/infrared.git
     dest: "{{ lookup('env','WORKSPACE') }}/infrared"
     force: yes
 
-- name: upgrade pip, setuptools and virtualenv
+- name: create venv with latest pip, setuptools and pbr
   pip:
-    name: "{{ item }}"  
+    virtualenv: "{{ infrared_dir }}/.venv"
+    name: "{{ item }}"
     state: latest
   with_items:
-    - pip
-    - setuptools
-    - virtualenv
-
+      - pip
+      - setuptools
+    
 - name: install infrared
-  shell: |
-    virtualenv .venv
-    source .venv/bin/activate
-  args:
-    chdir: "{{ infrared_dir }}"  
-                 
-- name: install requirements
   shell: |
     source .venv/bin/activate
     pip install .
   args:
-    chdir: "{{ infrared_dir }}"
+    chdir: "{{ infrared_dir }}" 
 
