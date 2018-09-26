@@ -13,3 +13,12 @@
     infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }} --config-options DEFAULT.local_ip={{ local_ip }} --config-options DEFAULT.network_gateway={{ network_gateway }} --config-options DEFAULT.undercloud_public_vip={{ undercloud_public_vip }} --config-options DEFAULT.undercloud_admin_vip={{ undercloud_admin_vip }} --config-options DEFAULT.network_cidr={{ network_cidr }} --config-options DEFAULT.masquerade_network={{ masquerade_network }} --config-options DEFAULT.dhcp_start={{ dhcp_start }} --config-options  DEFAULT.dhcp_end={{ dhcp_end }} --config-options DEFAULT.inspection_iprange={{ inspection_iprange }}
   args:
     chdir: "{{ infrared_dir }}"
+  when: version <= 12
+
+- name: install undercloud
+  shell: |
+    source {{ infrared_venv }}
+    infrared tripleo-undercloud --version {{ version }} --images-task rpm --build {{ build }} --config-options DEFAULT.local_ip={{ local_ip }} --config-options ctlplane-subnet.gateway={{ network_gateway }} --config-options DEFAULT.undercloud_public_host={{ undercloud_public_vip }} --config-options DEFAULT.undercloud_admin_host={{ undercloud_admin_vip }} --config-options ctlplane-subnet.cidr={{ network_cidr }}  --config-options ctlplane-subnet.dhcp_start={{ dhcp_start }} --config-options  ctlplane-subnet.dhcp_end={{ dhcp_end }} --config-options ctlplane-subnet.inspection_iprange={{ inspection_iprange }}
+  args:
+    chdir: "{{ infrared_dir }}"
+  when: version > 12
