@@ -1,6 +1,8 @@
 ---
 - name: Install dependencies
-  yum: name={{ item }} state=installed
+  package: 
+    name: "{{ item }}"
+    state: installed
   with_items:
       - git
       - gcc

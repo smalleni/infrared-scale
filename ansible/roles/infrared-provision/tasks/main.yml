@@ -9,7 +9,7 @@
     
 - name: copy network topology files for scale
   copy:
-    src: virsh-network/3_nets_scale.yml"
+    src: virsh-network/3_nets_scale.yml
     dest: "{{ infrared_dir }}/plugins/virsh/vars/topology/network/"
 
 - name: template node topology files for scale
